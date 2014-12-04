@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AppyParking</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="nearest_bays">Find Nearest Bays</string>
+    <string name="cheapest_bays">Find Cheapest Bays</string>
+    <string name="title_activity_maps">AppyParking for Loading</string>
+
+</resources>

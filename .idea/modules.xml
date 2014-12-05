@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/AppyParkingFinal.iml" filepath="$PROJECT_DIR$/AppyParkingFinal.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/AppyParkingCopy.iml" filepath="$PROJECT_DIR$/AppyParkingCopy.iml" />
+>>>>>>> 25411aea911b9350f2040003e3b8872174cb19f5
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

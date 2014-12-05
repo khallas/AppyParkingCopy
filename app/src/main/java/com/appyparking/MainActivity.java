@@ -2,11 +2,22 @@ package com.appyparking;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.SearchView;
+import android.widget.Toast;
+
+import com.appyparking.Geocoding.GeoLocate;
+
+import java.io.IOException;
+import java.util.List;
 
 
 public class MainActivity extends Activity {
@@ -24,7 +35,9 @@ public class MainActivity extends Activity {
                 //setContentView(R.layout.activity_maps);
             }
         });
+
        // final android.widget.Button c = (Button) findViewById()
+
 
     }
 
@@ -53,4 +66,32 @@ public class MainActivity extends Activity {
 
 
     }
+
+    public void geoLocate(View view) throws IOException {
+        hideSoftKeyboard(view);
+
+        EditText et = (EditText) findViewById(R.id.searchBar);
+        //SearchView sv = (SearchView) findViewById(R.id.searchView);
+        //EditText et = et.setText(sv.getQuery());
+        String location = et.getText().toString();
+        //String location = (String) sv.getQuery();
+
+        Geocoder gc = new Geocoder(this);
+        List<Address> list = gc.getFromLocationName(location, 1);
+        Address add = list.get(0);
+
+        String locality = add.getLocality();
+
+
+        double lat =add.getLatitude();
+        double lng = add.getLongitude();
+
+        Toast.makeText(this, lat + ", " + lng, Toast.LENGTH_LONG).show();
+    }
+    private void hideSoftKeyboard(View v){
+        InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+
+    }
+
 }

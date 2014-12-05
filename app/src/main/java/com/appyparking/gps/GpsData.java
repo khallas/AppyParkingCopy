@@ -15,7 +15,7 @@ public class GpsData {
 
     protected LocationManager locationManager;
     Location location;
-    double latitude, longitude;
+    public static double latitude, longitude;
     final long MIN_TIME_BW_UPDATES = 1200;
     final float MIN_DISTANCE_CHANGE_FOR_UPDATES = 1000;
     Context mContext;

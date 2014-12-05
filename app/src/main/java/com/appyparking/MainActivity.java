@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
                 //setContentView(R.layout.activity_maps);
             }
         });
+       // final android.widget.Button c = (Button) findViewById()
 
     }
 

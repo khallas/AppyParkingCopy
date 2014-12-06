@@ -11,16 +11,20 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SearchView;
+//import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.appyparking.Geocoding.GeoLocate;
+
 
 import java.io.IOException;
 import java.util.List;
 
 
 public class MainActivity extends Activity {
+
+    public double lat;
+    public double lng;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,8 @@ public class MainActivity extends Activity {
 
     }
 
+
+    //geoLocate method
     public void geoLocate(View view) throws IOException {
         hideSoftKeyboard(view);
 
@@ -80,11 +86,11 @@ public class MainActivity extends Activity {
         List<Address> list = gc.getFromLocationName(location, 1);
         Address add = list.get(0);
 
-        String locality = add.getLocality();
+        //String locality = add.getLocality();
 
 
-        double lat =add.getLatitude();
-        double lng = add.getLongitude();
+        lat =add.getLatitude();
+        lng = add.getLongitude();
 
         Toast.makeText(this, lat + ", " + lng, Toast.LENGTH_LONG).show();
     }

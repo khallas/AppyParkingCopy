@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,8 +23,8 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-    public double lat;
-    public double lng;
+    public double lat = 0;
+    public double lng = 0;
 
 
     @Override
@@ -77,21 +78,26 @@ public class MainActivity extends Activity {
         hideSoftKeyboard(view);
 
         EditText et = (EditText) findViewById(R.id.searchBar);
+        String location = et.getText().toString();
+        if (location.matches("")) {Toast.makeText(this, "no input", Toast.LENGTH_LONG).show();
+        }else{
         //SearchView sv = (SearchView) findViewById(R.id.searchView);
         //EditText et = et.setText(sv.getQuery());
-        String location = et.getText().toString();
+
         //String location = (String) sv.getQuery();
 
         Geocoder gc = new Geocoder(this);
         List<Address> list = gc.getFromLocationName(location, 1);
-        Address add = list.get(0);
-
-        //String locality = add.getLocality();
 
 
-        lat =add.getLatitude();
-        lng = add.getLongitude();
+            Address add = list.get(0);
 
+            //String locality = add.getLocality();
+
+
+            lat = add.getLatitude();
+            lng = add.getLongitude();
+        }
         Toast.makeText(this, lat + ", " + lng, Toast.LENGTH_LONG).show();
     }
     private void hideSoftKeyboard(View v){

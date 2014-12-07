@@ -25,3 +25,4 @@ proguard/
 
 # Log Files
 *.log
+app/src/main/java/com/appyparking/MapsActivity.java
